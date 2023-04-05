@@ -1,7 +1,8 @@
 package com.dronefeeder.dronefeeder.controller;
 
+import com.dronefeeder.dronefeeder.model.Drone;
+import com.dronefeeder.dronefeeder.service.DroneService;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dronefeeder.dronefeeder.model.Drone;
-import com.dronefeeder.dronefeeder.service.DroneService;
-
+/*** Controller da rota "/drones". ***/
 @RestController
 @RequestMapping("/drones")
 public class DroneController {
@@ -43,7 +42,10 @@ public class DroneController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Drone> atualizarDrone(@PathVariable Long id, @RequestBody Drone droneAtualizado) {
+  public ResponseEntity<Drone> atualizarDrone(
+        @PathVariable Long id,
+        @RequestBody Drone droneAtualizado
+  ) {
     Drone drone = droneService.atualizarDrone(id, droneAtualizado);
     return ResponseEntity.ok(drone);
   }

@@ -1,16 +1,14 @@
 package com.dronefeeder.dronefeeder.service;
 
+import com.dronefeeder.dronefeeder.model.Drone;
+import com.dronefeeder.dronefeeder.repository.DroneRepository;
 import java.util.List;
 import java.util.Optional;
-
 import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dronefeeder.dronefeeder.model.Drone;
-import com.dronefeeder.dronefeeder.repository.DroneRepository;
-
+/*** Service de Drone. ***/
 @Service
 public class DroneService {
 
@@ -21,6 +19,7 @@ public class DroneService {
     return droneRepository.findAll();
   }
 
+  /*** Busca por Id. ***/
   public Drone buscarDronePorId(Long id) {
     Optional<Drone> droneOptional = droneRepository.findById(id);
     if (droneOptional.isPresent()) {
@@ -33,6 +32,7 @@ public class DroneService {
     return droneRepository.save(drone);
   }
 
+  /*** Atualizar Informações do Drone. ***/
   public Drone atualizarDrone(Long id, Drone droneAtualizado) {
     Drone droneExistente = buscarDronePorId(id);
     droneExistente.setNome(droneAtualizado.getNome());
