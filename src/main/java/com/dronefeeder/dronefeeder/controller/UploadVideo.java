@@ -1,7 +1,11 @@
 package com.dronefeeder.dronefeeder.controller;
 
+import com.dronefeeder.dronefeeder.model.Video;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.core.io.FileSystemResource;
@@ -17,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dronefeeder.dronefeeder.model.Video;
-
 /*** Controller de Upload de Vídeos. ***/
 @RestController
 @RequestMapping("/videos")
@@ -28,8 +30,18 @@ public class UploadVideo {
   @PostMapping
   public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
     try {
-      // Salva o arquivo no diretório "uploads"
-      file.transferTo(new File("uploads/" + file.getOriginalFilename()));
+      // Cria o diretório de upload se ele não existir
+      Path uploadDir = Paths.get("uploads");
+
+      if (!Files.exists(uploadDir)) {
+        Files.createDirectory(uploadDir);
+      }
+      
+      // Salva o arquivo no disco
+      byte[] bytes = file.getBytes();
+      Path filePath = Paths.get("uploads" + File.separator + file.getOriginalFilename());
+      Files.write(filePath, bytes);
+
       return ResponseEntity.ok("Upload realizado com sucesso!");
     } catch (IOException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
