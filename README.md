@@ -44,6 +44,30 @@ Para rodar os testes do projeto, execute o seguinte comando:
 mvn test
 ```
 
+## Schemas
+
+```
+// Criar ou atualizar Drone
+{
+  "nome": string,
+  "latitude": double
+  "longitude": double
+}
+
+// Criar ou atualizar Entrega
+{
+  "dataHora": LocalDateTime
+  "video": string (Nome de um vídeo)
+  "status": string
+  "drone": Long (ID de um Drone)
+}
+
+// Fazer upload de video
+Enviar arquivo por meio de form-data
+Nome da chave: "file"
+Arquivo de vídeo não pode conter mais de 1MB de tamanho.
+```
+
 ## Autores
 
 - [@DaniellaZuccolotto](https://github.com/DaniellaZuccolotto)
