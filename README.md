@@ -1,4 +1,4 @@
-# Drone-Feeder
+# Drone-Feeder 🛰🛩
 Este projeto foi desenvolvido como desafio final do curso de Java da Trybe em parceria com o Hub Floripa. O objetivo é construir um sistema de entrega de pacotes utilizando drones.
 
 ## Funcionamento
@@ -54,10 +54,10 @@ Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
-  "dataHora": LocalDateTime
-  "video": string (Nome de um vídeo)
-  "status": string
-  "drone": Long (ID de um Drone)
+  "dataHora": LocalDateTime.now(),
+  "video": "nomeDoVideo.mp4",
+  "status": "Entregue",
+  "drone": new Drone,
 }
 
 ```
@@ -76,9 +76,9 @@ Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
-  "nome": string,
-  "latitude": double
-  "longitude": double
+  "nome": "nomeDoDrone"
+  "latitude": "10.45"
+  "longitude": "20.45"
 }
 ```
 
