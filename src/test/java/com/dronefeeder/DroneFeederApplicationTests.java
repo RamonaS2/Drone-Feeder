@@ -69,4 +69,19 @@ public class DroneFeederApplicationTests {
         .andExpect(jsonPath("$[1].latitude").value(drone2.getLatitude()))
         .andExpect(jsonPath("$[1].longitude").value(drone2.getLongitude()));
   }
+  
+  @Test
+  @DisplayName("Testa encontrar um Drone por Id.")
+  public void testdeletarDrone() throws Exception {
+    final var drone1 = new Drone();
+    
+    drone1.setId(1L);
+    drone1.setLatitude(1.45D);
+    drone1.setLongitude(1.45D);
+    drone1.setNome("Drone 1");
+
+    droneRepository.save(drone1);
+    
+    mockMvc.perform(get("/dronefeeder/drone/" + drone1.getId()));
+  }
 }

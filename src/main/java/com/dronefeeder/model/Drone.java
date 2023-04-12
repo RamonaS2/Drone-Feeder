@@ -59,4 +59,16 @@ public class Drone {
   public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
+  
+  public List<Entrega> getEntregas() {
+    return this.entregas;
+  }
+  
+  public void setEntregas(List<Entrega> entregas) {
+    this.entregas = entregas;
+  }
+  
+  public void addEntrega(Entrega entrega) {
+    this.entregas.add(entrega);
+  }
 }
