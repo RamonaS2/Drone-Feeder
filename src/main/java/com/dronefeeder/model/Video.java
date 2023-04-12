@@ -1,4 +1,4 @@
-package com.dronefeeder.dronefeeder.model;
+package com.dronefeeder.model;
 
 /*** Classe que representa um vídeo. ***/
 public class Video {

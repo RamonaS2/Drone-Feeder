@@ -1,6 +1,20 @@
 version: '3.3'
 
 services:
+  backend:
+    container_name: app-drone-feeder
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    env_file: ./src/main/resources/secrets.properties
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: drone_feeder_db
+    depends_on:
+      - mysql
   # Database
   mysql:
     image: mysql

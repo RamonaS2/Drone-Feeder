@@ -1,6 +1,6 @@
-package com.dronefeeder.dronefeeder.controller;
+package com.dronefeeder.controller;
 
-import com.dronefeeder.dronefeeder.model.Video;
+import com.dronefeeder.model.Video;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

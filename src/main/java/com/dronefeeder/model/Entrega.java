@@ -1,4 +1,4 @@
-package com.dronefeeder.dronefeeder.model;
+package com.dronefeeder.model;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ public class Entrega {
   private String status;
   
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "drone_id", referencedColumnName = "id")
+  @JoinColumn(name = "drone_id")
   private Drone drone;
 
   public Long getId() {
