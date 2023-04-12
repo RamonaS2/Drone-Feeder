@@ -1,4 +1,4 @@
-# Drone-Feeder 🛰🛩
+# Drone-Feeder 🛰
 Este projeto foi desenvolvido como desafio final do curso de Java da Trybe em parceria com o Hub Floripa. O objetivo é construir um sistema de entrega de pacotes utilizando drones.
 
 ## Funcionamento
