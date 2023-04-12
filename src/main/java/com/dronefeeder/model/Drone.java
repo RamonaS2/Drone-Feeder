@@ -1,9 +1,15 @@
 package com.dronefeeder.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /*** Entidade Drone. ***/
 @Entity
@@ -16,6 +22,11 @@ public class Drone {
   private String nome;
   private Double latitude;
   private Double longitude;
+  
+  @JsonIgnore
+  @OneToMany(mappedBy = "drone", cascade = CascadeType.ALL, orphanRemoval = true,
+      fetch = FetchType.LAZY)
+  private List<Entrega> entregas = new ArrayList<Entrega>();
 
   public Long getId() {
     return id;

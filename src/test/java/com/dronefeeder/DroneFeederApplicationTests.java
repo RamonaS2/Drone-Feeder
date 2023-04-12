@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.dronefeeder.model.Drone;
 import com.dronefeeder.repository.DroneRepository;
+import com.dronefeeder.repository.EntregaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,10 +27,14 @@ public class DroneFeederApplicationTests {
 
   @SpyBean
   private DroneRepository droneRepository;
+  
+  @SpyBean
+  private EntregaRepository entregaRepository;
 
   @BeforeEach
   public void setup() {
     droneRepository.deleteAll();
+    entregaRepository.deleteAll();
   }
 
   @Test
