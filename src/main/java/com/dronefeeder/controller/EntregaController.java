@@ -1,5 +1,6 @@
 package com.dronefeeder.controller;
 
+import com.dronefeeder.dto.EntregaDto;
 import com.dronefeeder.model.Entrega;
 import com.dronefeeder.service.EntregaService;
 import java.util.List;
@@ -36,14 +37,14 @@ public class EntregaController {
   }
 
   @PostMapping
-  public ResponseEntity<Entrega> cadastrarEntrega(@RequestBody Entrega entrega) {
+  public ResponseEntity<Entrega> cadastrarEntrega(@RequestBody EntregaDto entrega) {
     Entrega entregaCadastrada = entregaService.criarEntrega(entrega);
     return ResponseEntity.status(HttpStatus.CREATED).body(entregaCadastrada);
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<Entrega> atualizarEntrega(
-          @PathVariable Long id, @RequestBody Entrega entregaAtualizada) {
+          @PathVariable Long id, @RequestBody EntregaDto entregaAtualizada) {
     Entrega updatedEntrega = entregaService.atualizarEntrega(id, entregaAtualizada);
     return ResponseEntity.ok(updatedEntrega);
   }
