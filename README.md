@@ -54,10 +54,10 @@ Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
-  "dataHora": LocalDateTime.now(),
+  "dataHora": "2023-04-12T15:30:00",
   "video": "nomeDoVideo.mp4",
   "status": "Entregue",
-  "drone": new Drone,
+  "droneId": 1
 }
 
 ```
@@ -76,9 +76,9 @@ Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
-  "nome": "nomeDoDrone"
-  "latitude": "10.45"
-  "longitude": "20.45"
+  "nome": "nomeDoDrone",
+  "latitude": 10.45,
+  "longitude": 20.45
 }
 ```
 
