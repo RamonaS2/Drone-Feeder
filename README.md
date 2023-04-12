@@ -22,16 +22,10 @@ O sistema consiste em uma API REST implementada atraves de um CRUD que permite o
 
 Todas as credenciais do banco estão no arquivo secrets.properties
 
-Você pode usar o seguinte comando para criar o banco de dados:
+Você pode usar o seguinte comando para criar o banco de dados e rodar o projeto:
 
 ```bash
 docker-compose up -d
-```
-
-Após criar o banco de dados, você pode rodar o projeto com o seguinte comando:
-
-```bash
-mvn spring-boot:run
 ```
 
 O projeto estará rodando em http://localhost:8080.
@@ -46,21 +40,47 @@ mvn test
 
 ## Schemas
 
-```
-// Criar ou atualizar Drone
-{
-  "nome": string,
-  "latitude": double
-  "longitude": double
-}
+#### Entregas
 
-// Criar ou atualizar Entrega
+| Método | Funcionalidade | URL |
+|---|---|---|
+| `GET` | Retorna todos as entregas cadastradas | http://localhost:8080/entregas |
+| `GET` | Retorna uma entrega cadastrada conforme id | http://localhost:8080/entregas/{id} |
+| `POST` | Criação de uma nova entrega | http://localhost:8080/entregas |
+| `PUT` | Atualiza a entrega | http://localhost:8080/entregas/{id} |
+| `DELETE` | Deleta uma entrega | http://localhost:8080/entregas/{id} |
+
+Nessa requisição POST é necessário informar o seguinte JSON:
+
+```
 {
   "dataHora": LocalDateTime
   "video": string (Nome de um vídeo)
   "status": string
   "drone": Long (ID de um Drone)
 }
+
+```
+
+#### Drone
+
+| Método | Funcionalidade | URL |
+|---|---|---|
+| `GET` | Retorna todos os drones cadastradas | http://localhost:8080/drones |
+| `GET` | Retorna um drone cadastrada conforme id | http://localhost:8080/drones/{id} |
+| `POST` | Criação de um novo drone | http://localhost:8080/drones |
+| `PUT` | Atualiza o drone | http://localhost:8080/drones/{id} |
+| `DELETE` | Deleta um drone | http://localhost:8080/drones/{id} |
+
+Nessa requisição POST é necessário informar o seguinte JSON:
+
+```
+{
+  "nome": string,
+  "latitude": double
+  "longitude": double
+}
+```
 
 // Fazer upload de video
 Enviar arquivo por meio de form-data
