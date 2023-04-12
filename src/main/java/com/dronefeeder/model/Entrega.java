@@ -1,4 +1,4 @@
-package com.dronefeeder.dronefeeder.model;
+package com.dronefeeder.model;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

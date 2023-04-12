@@ -1,7 +1,7 @@
-package com.dronefeeder.dronefeeder.controller;
+package com.dronefeeder.controller;
 
-import com.dronefeeder.dronefeeder.model.Drone;
-import com.dronefeeder.dronefeeder.service.DroneService;
+import com.dronefeeder.model.Drone;
+import com.dronefeeder.service.DroneService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

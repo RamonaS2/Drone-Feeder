@@ -1,7 +1,7 @@
-package com.dronefeeder.dronefeeder.service;
+package com.dronefeeder.service;
 
-import com.dronefeeder.dronefeeder.model.Entrega;
-import com.dronefeeder.dronefeeder.repository.EntregaRepository;
+import com.dronefeeder.model.Entrega;
+import com.dronefeeder.repository.EntregaRepository;
 import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;

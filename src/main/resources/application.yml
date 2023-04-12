@@ -22,7 +22,9 @@ spring:
     password: ${MYSQL_ROOT_PASSWORD}
     
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
   jpa:
   
     properties:

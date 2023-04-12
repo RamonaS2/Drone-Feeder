@@ -1,4 +1,4 @@
-package com.dronefeeder.dronefeeder.model;
+package com.dronefeeder.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
