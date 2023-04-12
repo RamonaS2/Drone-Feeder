@@ -50,7 +50,7 @@ mvn test
 | `PUT` | Atualiza a entrega | http://localhost:8080/entregas/{id} |
 | `DELETE` | Deleta uma entrega | http://localhost:8080/entregas/{id} |
 
-Nessa requisição POST é necessário informar o seguinte JSON:
+Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
@@ -72,7 +72,7 @@ Nessa requisição POST é necessário informar o seguinte JSON:
 | `PUT` | Atualiza o drone | http://localhost:8080/drones/{id} |
 | `DELETE` | Deleta um drone | http://localhost:8080/drones/{id} |
 
-Nessa requisição POST é necessário informar o seguinte JSON:
+Nessa requisição POST e PUT é necessário informar o seguinte JSON:
 
 ```
 {
@@ -82,10 +82,20 @@ Nessa requisição POST é necessário informar o seguinte JSON:
 }
 ```
 
-// Fazer upload de video
-Enviar arquivo por meio de form-data
-Nome da chave: "file"
-Arquivo de vídeo não pode conter mais de 1MB de tamanho.
+#### Video
+
+| Método | Funcionalidade | URL |
+|---|---|---|
+| `GET` | Retorna todos os videos cadastradas | http://localhost:8080/videos |
+| `GET` | Faz o download do video cadastrado conforme o nome | http://localhost:8080/{nome} |
+| `POST` | Faz o upload do video | http://localhost:8080/videos |
+
+Nessa requisição POST é necessário fazer os seguintes passo a passo
+
+```
+- Enviar arquivo por meio de form-data
+- Nome da chave: "file"
+- Arquivo de vídeo não pode conter mais de 1MB de tamanho.
 ```
 
 ## Autores
